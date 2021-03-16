@@ -1,2 +1,18 @@
-# vuejs-news-app
-This repo contains code for my vuejs news app. the app makes use of the nytimes developers top stories api
+# vue-news-app
+
+> A Vue.js project
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+```
+
+For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).

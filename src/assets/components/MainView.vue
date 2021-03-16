@@ -3,17 +3,25 @@
   
 
     <div class="fetch">
-      <select v-model="selected" class="select-box">
+      <h3><span>News</span> categories</h3>
+     <section class="select-box">
+        <select v-model="selected" class="select-box">
         <option v-for="value in categories" :key= 'value'> 
           {{value}}
         </option>
       </select>
       <button v-on:click="newsFetch" class="fetch-btn">Fetch article</button>
+     </section>
     </div>
 
     <div v-if="stillFetching" class="loading-msg">
       <h4>Please a wait moment, your news feed is loading ...... </h4>
       <p>grab a coffee</p>
+    </div>
+
+    <div v-if="notFetching" class="static-content">
+      <h1>Welcome to the world of <span>top stories</span>...</h1>
+      <h4> Please select a category above</h4>
     </div>
 
     <div v-bind="newsFeed" class="news-area">
@@ -41,6 +49,7 @@ export default {
      newsFeed:[],
      selected:"",
      stillFetching : false,
+     notFetching:true
     }
   },
   methods:{
@@ -49,6 +58,7 @@ export default {
 
         this.stillFetching = true
         this.newsFeed = ""
+        this.notFetching= false 
          
           const apiKey ='ogAMAnUI0b592Gxiu44pO9EqHTXnGh2Q'
           const appId = '648de852-3a0c-4e24-b167-c57b3b9336d8'
@@ -81,6 +91,14 @@ export default {
 
 <style scoped>
 
+.main-view{
+  max-width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .news-area{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -104,9 +122,19 @@ export default {
 .fetch{
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content:center;
   padding: 2em;
   margin: 10px auto;
+}
+
+.fetch h3{
+  color:#42b983;
+  padding: 20px;
+}
+
+.fetch span{
+  text-decoration: underline;
 }
 
 .fetch-btn{
@@ -132,13 +160,38 @@ export default {
   padding: 10px;
   font-family: "Open sans";
   display: flex;
- 
   align-items: center;
-   text-align: left;
+  text-align: left;
   justify-content: center;
   margin: auto;
   flex-direction: column;
 }
+
+.static-content{
+  color: #42b983;
+  padding: 10px;
+  font-family: 'poppins';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.static-content h1{
+  font-size: 1.6em;
+  font-weight: 700;
+}
+.static-content h4{
+  text-align: left;
+}
+
+
+.static-content span{
+  text-decoration: underline;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
 .title{
   font-family: 'poppins';
   font-size: 1.3em;

@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <h1>Vue News App</h1>
+    <h1>Vuejs News App</h1>
 
   </div>
 </template>
@@ -30,7 +30,7 @@ export default {
 }
 
 #header h1{
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 700;
     font-family: 'poppins';
     
